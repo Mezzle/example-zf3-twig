@@ -1,0 +1,31 @@
+{{ doctype() }}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    {{ headTitle('Title').setSeparator(' - ').setAutoEscape(false)|raw }}
+
+    {{ headMeta()
+    .appendName('viewport', 'width=device-width, initial-scale=1.0')
+    .appendHttpEquiv('X-UA-Compatible', 'IE=edge')|raw }}
+
+    <!-- Le styles -->
+    {{ headLink({
+        'rel': 'shortcut icon',
+        'type': 'image/vnd.microsoft.icon',
+        'href': basePath() ~ '/img/favicon.ico'
+    })|raw }}
+
+    <!-- Scripts -->
+    {{ headScript()|raw }}
+
+</head>
+<body>
+{% block content %}
+    {{ content|raw }}
+{% endblock %}
+<footer>
+    <p>&copy; {{ "now"|date('Y') }} Your Company. All rights reserved.</p>
+</footer>
+{{ inlineScript()|raw }}
+</body>
+</html>
